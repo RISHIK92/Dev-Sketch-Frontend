@@ -35,7 +35,7 @@ export function Canvas({
         g.destroy();
       };
     }
-  }, [canvasRef]);
+  }, [canvasRef, roomId, socket]);
 
   return (
     <div className="h-screen relative flex overflow-hidden">

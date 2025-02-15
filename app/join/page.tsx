@@ -49,7 +49,8 @@ function App() {
         setStatus('error');
         setMessage('Room name already taken, please try another name.');
       }
-    } catch (error) {
+    } catch (err) {
+      console.log(err);
       setStatus('error');
       setMessage('Internal Server Error, Try Again!');
     }
@@ -86,7 +87,8 @@ function App() {
         setStatus('error');
         setMessage('Room not found, please check the name or ID.');
       }
-    } catch (error) {
+    } catch (err) {
+      console.log(err);
       setStatus('error');
       setMessage('Room not found');
     }
