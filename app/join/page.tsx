@@ -52,7 +52,7 @@ function App() {
     } catch (err) {
       console.log(err);
       setStatus('error');
-      setMessage('Room name already taken, please try another name.');
+      setMessage('Internal Server Error, Try Again!');
     }
   };
   
