@@ -1,2 +1,2 @@
-export const HTTP_Backend = "https://dev-sketch-http.onrender.com";
-export const WS_URL = "https://dev-sketch-ws.onrender.com";
+export const HTTP_Backend = "https://http.devsketch.rishik.codes";
+export const WS_URL = "wss://ws.devsketch.rishik.codes";
