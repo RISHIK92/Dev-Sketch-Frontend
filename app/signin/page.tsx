@@ -53,6 +53,34 @@ export default function SignIn() {
         }
     }
 
+    async function handleDemoSignin() {
+      setError(null);
+      
+      try {
+        setIsLoading(true);
+        const response = await axios.post(`${HTTP_Backend}/signin`, {
+          username: "test@example.com",
+          password: "1234567890",
+        });
+        localStorage.setItem('token',response.data.token);
+        localStorage.setItem('username', "test@example.com");
+  
+        if (response.status === 200) {
+          router.push("/join");
+        } else {
+          setError({ message: response.data.msg || "Demo signin failed. Please try again." });
+        }
+      } catch (error: any) {
+          if (error.response) {
+            setError({ message: "Demo signin failed. Please try manual signin." });
+          } else {
+            setError({ message: "Network error. Please check your connection." });
+          }
+        } finally {
+          setIsLoading(false);
+        }
+    }
+
     return (
       <div 
         className="min-h-screen overflow-hidden relative bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900"
@@ -152,7 +180,7 @@ export default function SignIn() {
             </div>
           </div>
   
-          {/* Right Side - Sign Up Form */}
+          {/* Right Side - Sign In Form */}
           <div className="w-full max-w-md animate-fade-in">
             <div className="relative">
               <div className="absolute -inset-1">
@@ -216,6 +244,20 @@ export default function SignIn() {
                       <span className="flex items-center justify-center text-white font-medium">
                         {isLoading ? 'Signing in...' : 'Signin'}
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleDemoSignin}
+                    disabled={isLoading}
+                    className="relative w-full group bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-400 p-[1px] rounded-xl mt-3"
+                  >
+                    <div className="relative bg-zinc-900 rounded-xl py-3 px-4 group-hover:bg-opacity-90 transition-all">
+                      <span className="flex items-center justify-center text-white font-medium">
+                        {isLoading ? 'Signing in...' : 'Demo Signin'}
+                        <Sparkles className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                       </span>
                     </div>
                   </button>
