@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { ArrowRight, LockIcon, Pencil, Share2, Sparkles, User2Icon, Users } from "lucide-react";
+import { ArrowRight, LockIcon, Pencil, Share2, User2Icon, Users } from "lucide-react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { HTTP_Backend } from "@/config";
@@ -174,7 +174,7 @@ export default function SignIn() {
   
             <div className="mt-16 border-t border-white/10 pt-8">
               <p className="flex items-center text-lg text-zinc-300/90">
-                <Sparkles className="w-5 h-5 mr-2 text-yellow-500" />
+                <ArrowRight className="w-5 h-5 mr-2 text-yellow-500" />
                 Trusted by creators worldwide
               </p>
             </div>
@@ -243,7 +243,6 @@ export default function SignIn() {
                     <div className="relative bg-zinc-900 rounded-xl py-3 px-4 group-hover:bg-opacity-90 transition-all">
                       <span className="flex items-center justify-center text-white font-medium">
                         {isLoading ? 'Signing in...' : 'Signin'}
-                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                   </button>
