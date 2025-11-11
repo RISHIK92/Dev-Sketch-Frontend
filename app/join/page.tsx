@@ -90,7 +90,7 @@ function App() {
     } catch (err) {
       console.log(err);
       setStatus('error');
-      setMessage('Room not found');
+      setMessage('Room not found, please create or join an existing room');
     }
   };
   
