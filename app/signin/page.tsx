@@ -243,6 +243,7 @@ export default function SignIn() {
                     <div className="relative bg-zinc-900 rounded-xl py-3 px-4 group-hover:bg-opacity-90 transition-all">
                       <span className="flex items-center justify-center text-white font-medium">
                         {isLoading ? 'Signing in...' : 'Signin'}
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
                   </button>
